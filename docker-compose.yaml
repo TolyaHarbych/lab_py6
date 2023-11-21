@@ -1,0 +1,20 @@
+version: '3.10.4'
+
+services:
+  data:
+    container_name: data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=Harbych
+      - POSTGRES_PASSWORD=1111
+    image: postgres:16.0-alpine3.18
+    volumes:
+      - ./data:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: Harbych@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: 1111
+    ports:
+      - "5050:80"
